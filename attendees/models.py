@@ -22,8 +22,18 @@ class Attendee(models.Model):
     def __str__(self):
         return self.name
 
+    def create_badge(self):
+        try:
+            self.badge
+        except:
+            Badge.objects.create(attendee=self)
+    
     def get_api_url(self):
         return reverse("api_show_attendee", kwargs={"pk": self.pk})
+    
+    
+
+
 
 
 class Badge(models.Model):

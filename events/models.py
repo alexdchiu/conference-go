@@ -40,6 +40,8 @@ class Location(models.Model):
         on_delete=models.PROTECT,
     )
 
+    picture_url = models.URLField(max_length=200,null=True)
+
     def get_api_url(self):
         return reverse("api_show_location", kwargs={"pk": self.pk})
 
