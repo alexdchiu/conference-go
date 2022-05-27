@@ -38,8 +38,11 @@ def get_weather_data(city, state):
   }
   direct_res = requests.get(direct_url,params=direct_params)
   direct_content = json.loads(direct_res.content)
-  lat = direct_content[0]["lat"]
-  lon = direct_content[0]["lon"]
+  try:
+    lat = direct_content[0]["lat"]
+    lon = direct_content[0]["lon"]
+  except:
+    return None
   url = "https://api.openweathermap.org/data/2.5/weather"
   params = {
     "lat": lat,
