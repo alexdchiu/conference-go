@@ -50,7 +50,7 @@ def api_list_attendees(request, conference_vo_id=None):
     
     else:
         content = json.loads(request.body)
-        print(content)
+
         try:
             conference_href = content["conference"]
             conference = ConferenceVO.objects.get(import_href=conference_href)

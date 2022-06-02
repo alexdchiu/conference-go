@@ -14,6 +14,8 @@ class ConferenceListEncoder(ModelEncoder):
     properties = [
         "name",
     ]
+
+
 @require_http_methods(["GET", "POST"])
 def api_list_conferences(request):
     """
